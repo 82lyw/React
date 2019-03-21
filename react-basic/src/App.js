@@ -43,8 +43,6 @@ class App extends Component {
   }
 
   swicthNameHandler = () => {
-    // console.log("Hello");
-    // Don't do this:this.state.person[0].name
     this.setState({
       persons: [
         {
@@ -64,8 +62,6 @@ class App extends Component {
   }
 
   swicthNameHandler_2 = (newName) => {
-    // console.log("Hello");
-    // Don't do this:this.state.person[0].name
     this.setState({
       persons: [
         {
@@ -122,7 +118,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -143,45 +140,30 @@ class App extends Component {
               count={person.count} />
             })
           }
-          {/* <Person 
-          changed={this.nameChangeHandler}
-          name={this.state.person[0].name} 
-          count={this.state.person[0].count} />
-          <Person 
-          myclick={this.swicthNameHandler_2.bind(this,"missu")}
-          name={this.state.person[1].name} 
-          count={this.state.person[1].count} />
-          <Person 
-          name={this.state.person[2].name} 
-          count={this.state.person[2].count}>这是第一个react-demo</Person> */}
           </div>
       )
+      style.backgroundColor = 'red';
+    }
 
+    // const classes = ["red","bold"].join(" ");
+    const classes = [];
+
+    if (this.state.persons.length <=2) {
+      classes.push("red");
+    }
+
+    if (this.state.persons.length <=1) {
+      classes.push("bold");
     }
 
     return (
       <div className="App">
         <h1>hello world!</h1>
-        <p>hi,react-app</p>
+        <p className={classes.join(" ")}>hi,react-app</p>
         {/* <button style={style} onClick={this.swicthNameHandler}>更改状态值1</button>
         <button style={style} onClick={this.swicthNameHandler_2.bind(this,"哈哈")}>更改状态值2</button> */}
         <button style={style} onClick={this.togglePersonsHandler}>切换状态</button>
         {persons}
-        {/* {
-          this.state.showPersons ? <div>
-          <Person 
-          changed={this.nameChangeHandler}
-          name={this.state.person[0].name} 
-          count={this.state.person[0].count} />
-          <Person 
-          myclick={this.swicthNameHandler_2.bind(this,"missu")}
-          name={this.state.person[1].name} 
-          count={this.state.person[1].count} />
-          <Person 
-          name={this.state.person[2].name} 
-          count={this.state.person[2].count}>这是第一个react-demo</Person>
-          </div> : null
-        } */}
       </div>
     );
   }

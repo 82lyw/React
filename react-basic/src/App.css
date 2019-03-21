@@ -1,11 +1,5 @@
-body {
-  background: burlywood;
-}
-
 .App {
   text-align: center;
-  color: brown;
-  background: #61dafb;
 }
 
 @keyframes App-logo-spin {

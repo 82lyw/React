@@ -85,13 +85,21 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>hello world!</h1>
         <p>hi,react-app</p>
-        <button onClick={this.swicthNameHandler}>更改状态值1</button>
+        <button style={style} onClick={this.swicthNameHandler}>更改状态值1</button>
         {/* <button onClick={() => this.swicthNameHandler_2("哈哈")}>更改状态值2</button> */}
-        <button onClick={this.swicthNameHandler_2.bind(this,"哈哈")}>更改状态值2</button>
+        <button style={style} onClick={this.swicthNameHandler_2.bind(this,"哈哈")}>更改状态值2</button>
         <Person 
         changed={this.nameChangeHandler}
         name={this.state.person[0].name} 

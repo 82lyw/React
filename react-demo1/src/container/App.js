@@ -8,41 +8,54 @@ import MyHeader from '../components/Headers/Header'
 class App extends Component {
   // state:用于改变组件内容状态的值（动态）
   // props:用于组件通信进行传值
-  state = {
-    persons: [
-      {
-        id: 1,
-        name: "lyw",
-        count: 30
-      },
-      {
-        id: 2,
-        name: "lyj",
-        count: 10
-      },
-      {
-        id: 3,
-        name: "lyz",
-        count: 25
-      },
-      {
-        id: 4,
-        name: "lyw",
-        count: 30
-      },
-      {
-        id: 5,
-        name: "lyj",
-        count: 10
-      },
-      {
-        id: 6,
-        name: "lyz",
-        count: 25
-      },
-    ],
-    otherState: "anything",
-    showPersons: false
+  constructor (props) {
+    super (props);
+    console.log("[App.js] constructor is running..." + props)
+
+    this.state = {
+      persons: [
+        {
+          id: 1,
+          name: "lyw",
+          count: 30
+        },
+        {
+          id: 2,
+          name: "lyj",
+          count: 10
+        },
+        {
+          id: 3,
+          name: "lyz",
+          count: 25
+        },
+        {
+          id: 4,
+          name: "lyw",
+          count: 30
+        },
+        {
+          id: 5,
+          name: "lyj",
+          count: 10
+        },
+        {
+          id: 6,
+          name: "lyz",
+          count: 25
+        },
+      ],
+      otherState: "anything",
+      showPersons: false
+    }
+  }
+
+  componentWillMount () {
+    console.log("[App.js] componentWillMount is running...")
+  }
+
+  componentDidMount () {
+    console.log("[App.js] componentDidMount is running...")
   }
 
   swicthNameHandler = () => {
@@ -120,6 +133,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("[App.js] render is running...")
 
     let persons = [];
     if (this.state.showPersons) {
@@ -143,3 +157,11 @@ class App extends Component {
 }
 
 export default App;
+
+/** 
+ * 生命周期钩子函数
+ * constructor()
+ * componentWillMount()
+ * render()
+ * componentDidMount()
+*/
